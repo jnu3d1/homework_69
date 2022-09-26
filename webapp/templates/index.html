@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}homework_69{% endblock %}
+
+{% block content %}
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="A">Число A</label>
+            <input id="A" name="A" type="number" required>
+        </div>
+        <div>
+            <label for="B">Число B</label>
+            <input id="B" name="B" type="number" required>
+        </div>
+        <div>
+            <button data-url="{% url "api_1:add" %}">&plus;</button>
+            <button data-url="{% url "api_1:subtract" %}">&minus;</button>
+            <button data-url="{% url "api_1:multiply" %}">&times;</button>
+            <button data-url="{% url "api_1:divide" %}">&divide;</button>
+        </div>
+        <div id="answer">
+            Ответ:
+        </div>
+    </form>
+{% endblock %}
